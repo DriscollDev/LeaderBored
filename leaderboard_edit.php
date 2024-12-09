@@ -113,31 +113,31 @@
                         <h3 style="display: inline; padding:1em">Require Proof?</h3>
                         <label class="switch center">
                             <input type="hidden" name="validationreq" value=0>
-                            <input name="validationreq" type="checkbox" checked value=1>
+                            <input name="validationreq" type="checkbox" <?php  $validationreq ? 'checked': '' ?> value=1>
                         </label>
                     </div>
                 </div> 
                 <div class="w3-row-padding w3-margin-top">
                     <div class="w3-third">
-                        <input class="w3-input w3-border" type="text" placeholder="Sort Field Name" name="fieldname">
+                        <input class="w3-input w3-border" type="text" placeholder="Sort Field Name" name="fieldname" value="<?php echo $fieldname ?>">
                     </div>
                     <div class="w3-third">
                         <select class="w3-select w3-border" name="datatype">
-                        <option value="" disabled selected>Data Type</option>
-                        <option value="Time">Time</option>
-                        <option value="Int">Number</option>
+                        <option value="" disabled <?php if($datatype==""){echo 'selected';} ?>>Data Type</option>
+                        <option value="Time" <?php if($datatype=="Time"){echo 'selected';} ?> >Time</option>
+                        <option value="Int" <?php if($datatype=="Int"){echo 'selected';} ?>>Number</option>
                         </select>
                     </div>
                     <div class="w3-third">
                         <select class="w3-select w3-border" name="sortdirection">
-                        <option value="" disabled selected>Sort Direction</option>
-                        <option value="Asc">Lowest at Top</option>
-                        <option value="Dec">Highest at Top</option>
+                        <option value="" disabled <?php if($datatype==""){echo 'selected';} ?>>Sort Direction</option>
+                        <option value="Asc" <?php if($datatype=="Asc"){echo 'selected';} ?>>Lowest at Top</option>
+                        <option value="Dec" <?php if($datatype=="Desc"){echo 'selected';} ?>>Highest at Top</option>
                         </select>
                     </div>
                 </div> 
                 <div class="w3-container w3-margin-top">
-                    <textarea class="w3-input w3-border" placeholder="Description" name="description" rows="10" cols="10"></textarea>
+                    <textarea class="w3-input w3-border" placeholder="Description" name="description" rows="10" cols="10" ><?php echo $description ?></textarea>
                     
                 </div>
                 <div>

@@ -86,7 +86,7 @@ function getLeaderboardEntry($leaderboard_id, $user_id) {
 function getTopEntry($leaderboard_id) {
     global $db;
 
-    $stmt = $db->prepare('SELECT * FROM lbsubmissions WHERE boardID= :leaderboard_id ORDER BY data DESC LIMIT 1');
+    $stmt = $db->prepare('SELECT * FROM lbsubmissions WHERE boardID= :leaderboard_id ORDER BY score DESC LIMIT 1');
 
     $stmt->bindValue(':leaderboard_id', $leaderboard_id);
 

@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if(isset($_SESSION['isLoggedIn'])){
+        header('Location: index.php');
+    }
     /*Users currently in database
       username  : password
      1: doug    : password
