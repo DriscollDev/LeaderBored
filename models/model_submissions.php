@@ -65,24 +65,6 @@ function validateSubmission($submission_id) {
     return $stmt->execute();
 }
 
-
-function getLeaderboardLeaders($leaderboard_id, $verificationReq) {
-    global $db;
-
-    if($verificationReq){
-        $stmt = $db->prepare("SELECT * FROM lbsubmissions WHERE boardID=:leaderboard_id AND isVerified=1");
-    }
-    else{
-        $stmt = $db->prepare("SELECT * FROM lbsubmissions WHERE boardID=:leaderboard_id");
-    }
-
-    $stmt->bindValue(':leaderboard_id', $leaderboard_id);
- 
-    $stmt->execute();
-    
-    return $stmt->fetchAll();
-}
-
 function getSubmissions($user_id) {
     global $db;
 

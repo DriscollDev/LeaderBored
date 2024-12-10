@@ -4,6 +4,7 @@
     include 'models/model_users.php';
     include 'models/model_leaderboards.php';
     include 'models/model_submissions.php';
+    include 'models/functions.php';
 
     if(isset($_SESSION['isLoggedIn'])){
         $username = $_SESSION['username'];
@@ -28,12 +29,7 @@
 
 
     
-    function timeComp($a, $b) {
-        return strtotime($a['score']) - strtotime($b['score']);
-    }
-    function intComp($a, $b) {
-        return (int)$a['score'] - (int)$b['score'];
-    }
+    
 ?>
 <style>
     .fix{

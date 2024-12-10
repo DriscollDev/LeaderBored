@@ -1,9 +1,7 @@
 <?php
     session_start();
     include './includes/header.php';
-    include 'models/model_users.php';
-    include 'models/model_leaderboards.php';
-    include 'models/model_submissions.php';
+    include 'models/functions.php';
 
     if(isset($_SESSION['isLoggedIn'])){
         $username = $_SESSION['username'];
@@ -65,10 +63,13 @@
         <h2>Submissions</h2>
         <?php foreach ($submissions as $submission):?>
         <div class="w3-row w3-margin top">
-            <div class="w3-col s6 w3-white w3-center">
+            <div class="w3-col s2 w3-black w3-center">
+                <p><?php echo getSubmissionPlacement($submission["id"]) ?></p>
+            </div>
+            <div class="w3-col s5 w3-white w3-center">
                 <p><?php echo $submission["score"]?></p>
             </div>
-            <div class="w3-col s6 w3-white w3-center">
+            <div class="w3-col s5 w3-white w3-center">
                 <p><?php echo $submission["submissionDate"]?></p>
             </div>
         </div>
