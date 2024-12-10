@@ -82,3 +82,15 @@ function getLeaderboardLeaders($leaderboard_id, $verificationReq) {
     
     return $stmt->fetchAll();
 }
+
+function getSubmissions($user_id) {
+    global $db;
+
+    $stmt = $db->prepare('SELECT * FROM lbsubmissions WHERE userID= :user_id');
+
+    $stmt->bindValue(':user_id', $user_id);
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}

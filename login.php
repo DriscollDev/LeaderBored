@@ -6,8 +6,8 @@
     }
     /*Users currently in database
       username  : password
-     1: doug    : password
-     2: conor   : pass
+     1: doug    : pass
+     2: conor   : test
     */
     include './includes/header.php';
     include 'models/model_users.php';

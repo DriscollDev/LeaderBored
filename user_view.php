@@ -3,13 +3,14 @@
     include './includes/header.php';
     include 'models/model_users.php';
     include 'models/model_leaderboards.php';
+    include 'models/model_submissions.php';
 
     if(isset($_SESSION['isLoggedIn'])){
         $username = $_SESSION['username'];
         $user = getUser($username);
         $user_id = $user['id'];
         $boards = getBoards($user_id);
-        
+        $submissions = getSubmissions($user_id);
     }
     else{
         header('Location: login.php');
@@ -62,7 +63,16 @@
     </div>
     <div class="w3-col s4 w3-theme-d2 w3-center">
         <h2>Submissions</h2>
-
+        <?php foreach ($submissions as $submission):?>
+        <div class="w3-row w3-margin top">
+            <div class="w3-col s6 w3-white w3-center">
+                <p><?php echo $submission["score"]?></p>
+            </div>
+            <div class="w3-col s6 w3-white w3-center">
+                <p><?php echo $submission["submissionDate"]?></p>
+            </div>
+        </div>
+        <?php endforeach; ?>
     </div>
 </div> 
 
